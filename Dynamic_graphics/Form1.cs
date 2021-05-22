@@ -97,7 +97,12 @@ namespace Dynamic_graphics
                     g.Clear(System.Drawing.Color.White);
                     g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
                 }
-                else MessageBox.Show("Значения должны быть в диапазоне от 0 до " + pictureBox1.Width);
+                else
+                {
+                    Step_timer.Stop();
+                    MessageBox.Show("Значения должны быть в диапазоне от 0 до " + pictureBox1.Width);
+                    Step_timer.Start();
+                }
             }
         }
 
@@ -110,7 +115,12 @@ namespace Dynamic_graphics
                     g.Clear(System.Drawing.Color.White);
                     g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
                 }
-                else MessageBox.Show("Значения должны быть в диапазоне от 0 до " + pictureBox1.Height);
+                else
+                {
+                    Step_timer.Stop();
+                    MessageBox.Show("Значения должны быть в диапазоне от 0 до " + pictureBox1.Height);
+                    Step_timer.Start();
+                }
             }
         }
     }
