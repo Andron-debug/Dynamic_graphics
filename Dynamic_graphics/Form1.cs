@@ -21,19 +21,23 @@ namespace Dynamic_graphics
         {
             InitializeComponent();
             g = pictureBox1.CreateGraphics();
-            g.Clear(System.Drawing.Color.White);
-            g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l + pictureBox1.Width / 2, l + pictureBox1.Height / 2);
+            Step_timer.Interval = 1;
+            Step_timer.Start();
+            Start_button.Enabled = false;
         }
 
         private void Start_button_Click(object sender, EventArgs e)
         {
-            Step_timer.Interval = 1;
             Step_timer.Start();
+            Start_button.Enabled = false;
+            Pause_button.Enabled = true;
         }
 
         private void Pause_button_Click(object sender, EventArgs e)
         {
             Step_timer.Stop();
+            Start_button.Enabled = true;
+            Pause_button.Enabled = false;
         }
 
         private void Step_timer_Tick(object sender, EventArgs e)
@@ -42,6 +46,11 @@ namespace Dynamic_graphics
             angal -= v;
             if ((angal >= 6.28) || (angal <= -6.28)) angal = 0;
             g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l*MathF.Cos(angal)+ pictureBox1.Width / 2, l*MathF.Sin(angal)+ pictureBox1.Height / 2);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l + pictureBox1.Width / 2, l + pictureBox1.Height / 2);
         }
     }
 }

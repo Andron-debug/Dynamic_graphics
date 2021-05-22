@@ -49,7 +49,7 @@ namespace Dynamic_graphics
             // 
             // Pause_button
             // 
-            this.Pause_button.Location = new System.Drawing.Point(630, 106);
+            this.Pause_button.Location = new System.Drawing.Point(630, 82);
             this.Pause_button.Name = "Pause_button";
             this.Pause_button.Size = new System.Drawing.Size(94, 29);
             this.Pause_button.TabIndex = 1;
@@ -80,6 +80,7 @@ namespace Dynamic_graphics
             this.Controls.Add(this.Start_button);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
