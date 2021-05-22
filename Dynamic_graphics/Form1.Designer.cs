@@ -34,7 +34,16 @@ namespace Dynamic_graphics
             this.Pause_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Step_timer = new System.Windows.Forms.Timer(this.components);
+            this.Speed_trackBar = new System.Windows.Forms.TrackBar();
+            this.Whide_trackBar = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.l_trackBar = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Speed_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Whide_trackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.l_trackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // Start_button
@@ -70,19 +79,87 @@ namespace Dynamic_graphics
             // 
             this.Step_timer.Tick += new System.EventHandler(this.Step_timer_Tick);
             // 
+            // Speed_trackBar
+            // 
+            this.Speed_trackBar.Location = new System.Drawing.Point(609, 174);
+            this.Speed_trackBar.Minimum = -10;
+            this.Speed_trackBar.Name = "Speed_trackBar";
+            this.Speed_trackBar.Size = new System.Drawing.Size(179, 56);
+            this.Speed_trackBar.SmallChange = 2;
+            this.Speed_trackBar.TabIndex = 5;
+            this.Speed_trackBar.Value = 10;
+            this.Speed_trackBar.Scroll += new System.EventHandler(this.Speed_trackBar_Scroll);
+            // 
+            // Whide_trackBar
+            // 
+            this.Whide_trackBar.Location = new System.Drawing.Point(609, 233);
+            this.Whide_trackBar.Minimum = 1;
+            this.Whide_trackBar.Name = "Whide_trackBar";
+            this.Whide_trackBar.Size = new System.Drawing.Size(179, 56);
+            this.Whide_trackBar.TabIndex = 4;
+            this.Whide_trackBar.Value = 5;
+            this.Whide_trackBar.Scroll += new System.EventHandler(this.Whide_trackBar_Scroll);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(610, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Скорость";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(609, 210);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Толшина";
+            // 
+            // l_trackBar
+            // 
+            this.l_trackBar.Location = new System.Drawing.Point(609, 295);
+            this.l_trackBar.Maximum = 15;
+            this.l_trackBar.Minimum = 1;
+            this.l_trackBar.Name = "l_trackBar";
+            this.l_trackBar.Size = new System.Drawing.Size(179, 56);
+            this.l_trackBar.TabIndex = 7;
+            this.l_trackBar.Value = 8;
+            this.l_trackBar.Scroll += new System.EventHandler(this.l_trackBar_Scroll);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(610, 269);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Длинна";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.l_trackBar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Whide_trackBar);
+            this.Controls.Add(this.Speed_trackBar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Pause_button);
             this.Controls.Add(this.Start_button);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Speed_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Whide_trackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.l_trackBar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,6 +169,13 @@ namespace Dynamic_graphics
         private System.Windows.Forms.Button Pause_button;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer Step_timer;
+        private System.Windows.Forms.TrackBar Speed_trackBar;
+        private System.Windows.Forms.TrackBar trackBar;
+        private System.Windows.Forms.TrackBar Whide_trackBar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar l_trackBar;
+        private System.Windows.Forms.Label label3;
     }
 }
 
