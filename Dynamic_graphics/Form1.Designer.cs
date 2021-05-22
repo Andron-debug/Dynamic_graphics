@@ -40,6 +40,8 @@ namespace Dynamic_graphics
             this.label2 = new System.Windows.Forms.Label();
             this.l_trackBar = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.Color_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Speed_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Whide_trackBar)).BeginInit();
@@ -138,11 +140,22 @@ namespace Dynamic_graphics
             this.label3.TabIndex = 8;
             this.label3.Text = "Длинна";
             // 
+            // Color_button
+            // 
+            this.Color_button.Location = new System.Drawing.Point(610, 357);
+            this.Color_button.Name = "Color_button";
+            this.Color_button.Size = new System.Drawing.Size(134, 33);
+            this.Color_button.TabIndex = 9;
+            this.Color_button.Text = "Выбрать цвет";
+            this.Color_button.UseVisualStyleBackColor = true;
+            this.Color_button.Click += new System.EventHandler(this.Color_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Color_button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.l_trackBar);
             this.Controls.Add(this.label2);
@@ -176,6 +189,8 @@ namespace Dynamic_graphics
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TrackBar l_trackBar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.Button Color_button;
     }
 }
 

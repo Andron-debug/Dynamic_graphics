@@ -13,7 +13,7 @@ namespace Dynamic_graphics
     public partial class Form1 : Form
     {
         Pen p = new Pen(System.Drawing.Color.Black);
-        int l = 50; //длинна линии
+        int l; //длинна линии
         float angal = 0;//текущий угол
         float v;// угловая скорость
         Graphics g;
@@ -75,6 +75,15 @@ namespace Dynamic_graphics
         private void Speed_trackBar_Scroll(object sender, EventArgs e)
         {
             v = (float)Speed_trackBar.Value * 2 / 100;
+        }
+
+        private void Color_button_Click(object sender, EventArgs e)
+        {
+            if(colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                p.Color = colorDialog.Color;
+                g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l * MathF.Cos(angal) + pictureBox1.Width / 2, l * MathF.Sin(angal) + pictureBox1.Height / 2);
+            }
         }
     }
 }
