@@ -29,9 +29,11 @@ namespace Dynamic_graphics
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Start_button = new System.Windows.Forms.Button();
             this.Pause_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Step_timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +45,7 @@ namespace Dynamic_graphics
             this.Start_button.TabIndex = 0;
             this.Start_button.Text = "Пуск";
             this.Start_button.UseVisualStyleBackColor = true;
+            this.Start_button.Click += new System.EventHandler(this.Start_button_Click);
             // 
             // Pause_button
             // 
@@ -52,6 +55,7 @@ namespace Dynamic_graphics
             this.Pause_button.TabIndex = 1;
             this.Pause_button.Text = "Пауза";
             this.Pause_button.UseVisualStyleBackColor = true;
+            this.Pause_button.Click += new System.EventHandler(this.Pause_button_Click);
             // 
             // pictureBox1
             // 
@@ -61,6 +65,10 @@ namespace Dynamic_graphics
             this.pictureBox1.Size = new System.Drawing.Size(513, 381);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // Step_timer
+            // 
+            this.Step_timer.Tick += new System.EventHandler(this.Step_timer_Tick);
             // 
             // Form1
             // 
@@ -82,6 +90,7 @@ namespace Dynamic_graphics
         private System.Windows.Forms.Button Start_button;
         private System.Windows.Forms.Button Pause_button;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer Step_timer;
     }
 }
 
