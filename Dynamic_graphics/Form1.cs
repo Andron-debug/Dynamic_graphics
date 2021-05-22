@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dynamic_graphics
@@ -14,6 +8,9 @@ namespace Dynamic_graphics
     {
         Pen p = new Pen(System.Drawing.Color.Black);
         int l; //длинна линии
+        //Координаты точки вращения
+        int x;
+        int y;
         float angal = 0;//текущий угол
         float v;// угловая скорость
         Graphics g;
@@ -24,6 +21,10 @@ namespace Dynamic_graphics
             v = (float)Speed_trackBar.Value * 2 / 1000;
             l = l_trackBar.Value * 10;
             p.Width = Whide_trackBar.Value;
+            x = pictureBox1.Width / 2;
+            y = pictureBox1.Height / 2;
+            X_textBox.Text = x.ToString();
+            Y_textBox.Text = y.ToString();
             Step_timer.Interval = 1;
             Step_timer.Start();
             Start_button.Enabled = false;
@@ -45,12 +46,12 @@ namespace Dynamic_graphics
 
         private void Step_timer_Tick(object sender, EventArgs e)
         {
-            if (v!=0) g.Clear(System.Drawing.Color.White);
+            if (v != 0) g.Clear(System.Drawing.Color.White);
             angal += v;
             // v > 0 вращение по часовой
             // v < 0 вращение против часовой
             if ((angal >= 6.28) || (angal <= -6.28)) angal = 0;
-            g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l*MathF.Cos(angal)+ pictureBox1.Width / 2, l*MathF.Sin(angal)+ pictureBox1.Height / 2);
+            g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace Dynamic_graphics
         {
             p.Width = p.Width = Whide_trackBar.Value;
             g.Clear(System.Drawing.Color.White);
-            g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l * MathF.Cos(angal) + pictureBox1.Width / 2, l * MathF.Sin(angal) + pictureBox1.Height / 2);
+            g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
 
         }
 
@@ -69,7 +70,7 @@ namespace Dynamic_graphics
         {
             l = l_trackBar.Value * 10;
             g.Clear(System.Drawing.Color.White);
-            g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l * MathF.Cos(angal) + pictureBox1.Width / 2, l * MathF.Sin(angal) + pictureBox1.Height / 2);
+            g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
         }
 
         private void Speed_trackBar_Scroll(object sender, EventArgs e)
@@ -79,10 +80,37 @@ namespace Dynamic_graphics
 
         private void Color_button_Click(object sender, EventArgs e)
         {
-            if(colorDialog.ShowDialog() == DialogResult.OK)
+            if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 p.Color = colorDialog.Color;
-                g.DrawLine(p, pictureBox1.Width / 2, pictureBox1.Height / 2, l * MathF.Cos(angal) + pictureBox1.Width / 2, l * MathF.Sin(angal) + pictureBox1.Height / 2);
+                g.Clear(System.Drawing.Color.White);
+                g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
+            }
+        }
+
+        private void X_textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(X_textBox.Text, out x))
+            {
+                if ((x >= 0) && (x <= pictureBox1.Width))
+                {
+                    g.Clear(System.Drawing.Color.White);
+                    g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
+                }
+                else MessageBox.Show("Значения должны быть в диапазоне от 0 до " + pictureBox1.Width);
+            }
+        }
+
+        private void Y_textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(Y_textBox.Text, out y))
+            {
+                if ((y >= 0) && (y <= pictureBox1.Height))
+                {
+                    g.Clear(System.Drawing.Color.White);
+                    g.DrawLine(p, x, y, l * MathF.Cos(angal) + x, l * MathF.Sin(angal) + y);
+                }
+                else MessageBox.Show("Значения должны быть в диапазоне от 0 до " + pictureBox1.Height);
             }
         }
     }

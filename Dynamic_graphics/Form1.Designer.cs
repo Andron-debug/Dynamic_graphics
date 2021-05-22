@@ -42,6 +42,11 @@ namespace Dynamic_graphics
             this.label3 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.Color_button = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.X_textBox = new System.Windows.Forms.TextBox();
+            this.Y_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Speed_trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Whide_trackBar)).BeginInit();
@@ -142,7 +147,7 @@ namespace Dynamic_graphics
             // 
             // Color_button
             // 
-            this.Color_button.Location = new System.Drawing.Point(610, 357);
+            this.Color_button.Location = new System.Drawing.Point(630, 336);
             this.Color_button.Name = "Color_button";
             this.Color_button.Size = new System.Drawing.Size(134, 33);
             this.Color_button.TabIndex = 9;
@@ -150,11 +155,59 @@ namespace Dynamic_graphics
             this.Color_button.UseVisualStyleBackColor = true;
             this.Color_button.Click += new System.EventHandler(this.Color_button_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(590, 382);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "X";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(590, 412);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Y";
+            // 
+            // X_textBox
+            // 
+            this.X_textBox.Location = new System.Drawing.Point(614, 379);
+            this.X_textBox.Name = "X_textBox";
+            this.X_textBox.Size = new System.Drawing.Size(58, 27);
+            this.X_textBox.TabIndex = 13;
+            this.X_textBox.TextChanged += new System.EventHandler(this.X_textBox_TextChanged);
+            // 
+            // Y_textBox
+            // 
+            this.Y_textBox.Location = new System.Drawing.Point(614, 412);
+            this.Y_textBox.Name = "Y_textBox";
+            this.Y_textBox.Size = new System.Drawing.Size(58, 27);
+            this.Y_textBox.TabIndex = 14;
+            this.Y_textBox.TextChanged += new System.EventHandler(this.Y_textBox_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Y_textBox);
+            this.Controls.Add(this.X_textBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Color_button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.l_trackBar);
@@ -191,6 +244,11 @@ namespace Dynamic_graphics
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Button Color_button;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox X_textBox;
+        private System.Windows.Forms.TextBox Y_textBox;
     }
 }
 
